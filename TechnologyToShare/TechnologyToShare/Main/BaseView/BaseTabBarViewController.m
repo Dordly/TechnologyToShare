@@ -7,31 +7,72 @@
 //
 
 #import "BaseTabBarViewController.h"
-
-@interface BaseTabBarViewController ()
+#import "FirstViewController.h"//首页
+#import "SecondViewController.h"//关注
+#import "ThirdViewController.h"//添加&发表
+#import "FourthViewController.h"//发现
+#import "FifthViewController.h"//个人中心
+#import "BaseTabBar.h"
+@interface BaseTabBarViewController ()<BaseTabBarDelegate,UITabBarControllerDelegate>
 
 @end
 
 @implementation BaseTabBarViewController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // 利用KVO来使用自定义的tabBar
+    BaseTabBar * tabBar = [[BaseTabBar alloc] init];
+    tabBar.myTabBarDelegate = self;
+    [self setValue:tabBar forKey:@"tabBar"];
+    self.delegate = self;
+    [self addAllChildViewController];
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addAllChildViewController {
+    
+    FirstViewController * fistVC = [[FirstViewController alloc]init];
+    UINavigationController * firstNV = [[UINavigationController alloc]initWithRootViewController:fistVC];
+    [self addChildViewController:firstNV title:@"首页" imageNamed:@"first_a" SelectImageNamed:@"first_n"];
+    
+    SecondViewController * secondVC = [[SecondViewController alloc]init];
+    UINavigationController * secondNV = [[UINavigationController alloc]initWithRootViewController:secondVC];
+    [self addChildViewController:secondNV title:@"关注" imageNamed:@"second_a" SelectImageNamed:@"second_n"];
+    
+    
+    FourthViewController * fourthVC = [[FourthViewController alloc]init];
+    UINavigationController * fourthNV = [[UINavigationController alloc]initWithRootViewController:fourthVC];
+    [self addChildViewController:fourthNV title:@"发现" imageNamed:@"fourth_a" SelectImageNamed:@"fourth_n"];
+    
+    FifthViewController * fifthVC = [[FifthViewController alloc]init];
+    UINavigationController * fifthNV = [[UINavigationController alloc]initWithRootViewController:fifthVC];
+    [self addChildViewController:fifthNV title:@"我的" imageNamed:@"fifth_a" SelectImageNamed:@"fifth_n"];
+    
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+// 添加某个 childViewController
+- (void)addChildViewController:(UIViewController *)vc title:(NSString *)title imageNamed:(NSString *)imageNamed SelectImageNamed:(NSString *)selectImage
+{
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    // 如果同时有navigationbar 和 tabbar的时候最好分别设置它们的title
+    vc.navigationItem.title = title;
+    nav.tabBarItem.title = title;
+    nav.tabBarItem.image = [UIImage imageNamed:imageNamed];
+    nav.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
+    
+    [self addChildViewController:nav];
 }
-*/
-
-@end
+- (void)changeLineOfTabbarColor {
+    CGRect rect = CGRectMake(0, 0, SCREEN_WIDTH, 0.5);
+    UIGraphicsBeginImageContextWithOptions(rect.size,NO, 0);
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, Color_white.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage *image =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [self.tabBar setShadowImage:image];
+    [self.tabBar setBackgroundImage:[UIImage new]];
+}
+- (void)addButtonClick:(BaseTabBar *)tabBar
+{
+    ThirdViewController * thirdVC = [[ThirdViewController alloc]init];
+    [self presentViewController:thirdVC animated:YES completion:nil];
+}@end

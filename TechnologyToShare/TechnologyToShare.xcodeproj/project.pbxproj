@@ -20,6 +20,10 @@
 		875A6C66210190DF0090FD76 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C65210190DF0090FD76 /* ThirdViewController.m */; };
 		875A6C69210190E80090FD76 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C68210190E80090FD76 /* FourthViewController.m */; };
 		875A6C6C210190F10090FD76 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C6B210190F10090FD76 /* FifthViewController.m */; };
+		875A6C6F2101933D0090FD76 /* BaseTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C6E2101933D0090FD76 /* BaseTabBar.m */; };
+		875A6C7A210195600090FD76 /* ValidateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C782101955F0090FD76 /* ValidateString.m */; };
+		875A6C80210195A20090FD76 /* UtilView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C7D210195A20090FD76 /* UtilView.m */; };
+		875A6C81210195A20090FD76 /* UtilAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C7F210195A20090FD76 /* UtilAutoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,18 @@
 		875A6C68210190E80090FD76 /* FourthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 		875A6C6A210190F10090FD76 /* FifthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
 		875A6C6B210190F10090FD76 /* FifthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
+		875A6C6D2101933C0090FD76 /* BaseTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTabBar.h; sourceTree = "<group>"; };
+		875A6C6E2101933D0090FD76 /* BaseTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTabBar.m; sourceTree = "<group>"; };
+		875A6C70210193940090FD76 /* TTSPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSPrefixHeader.pch; sourceTree = "<group>"; };
+		875A6C71210193E10090FD76 /* Color_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Color_header.h; sourceTree = "<group>"; };
+		875A6C72210193F00090FD76 /* Define_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define_header.h; sourceTree = "<group>"; };
+		875A6C73210193FA0090FD76 /* Url_header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Url_header.h; sourceTree = "<group>"; };
+		875A6C782101955F0090FD76 /* ValidateString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidateString.m; sourceTree = "<group>"; };
+		875A6C792101955F0090FD76 /* ValidateString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidateString.h; sourceTree = "<group>"; };
+		875A6C7C210195A20090FD76 /* UtilAutoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilAutoView.h; sourceTree = "<group>"; };
+		875A6C7D210195A20090FD76 /* UtilView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilView.m; sourceTree = "<group>"; };
+		875A6C7E210195A20090FD76 /* UtilView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilView.h; sourceTree = "<group>"; };
+		875A6C7F210195A20090FD76 /* UtilAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilAutoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +95,7 @@
 		875A6C24210186A30090FD76 /* TechnologyToShare */ = {
 			isa = PBXGroup;
 			children = (
+				875A6C74210195220090FD76 /* Common */,
 				875A6C3C21018EDE0090FD76 /* Main */,
 				875A6C3B21018E6E0090FD76 /* Other */,
 				875A6C2B210186A30090FD76 /* Main.storyboard */,
@@ -97,6 +114,10 @@
 				875A6C26210186A30090FD76 /* AppDelegate.m */,
 				875A6C28210186A30090FD76 /* ViewController.h */,
 				875A6C29210186A30090FD76 /* ViewController.m */,
+				875A6C70210193940090FD76 /* TTSPrefixHeader.pch */,
+				875A6C71210193E10090FD76 /* Color_header.h */,
+				875A6C72210193F00090FD76 /* Define_header.h */,
+				875A6C73210193FA0090FD76 /* Url_header.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -117,6 +138,8 @@
 		875A6C3D21018EEB0090FD76 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				875A6C6D2101933C0090FD76 /* BaseTabBar.h */,
+				875A6C6E2101933D0090FD76 /* BaseTabBar.m */,
 				875A6C3E21018F000090FD76 /* BaseTabBarViewController.h */,
 				875A6C3F21018F000090FD76 /* BaseTabBarViewController.m */,
 				875A6C4121018F0C0090FD76 /* BaseViewController.h */,
@@ -290,6 +313,51 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		875A6C74210195220090FD76 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				875A6C77210195430090FD76 /* ThirdLibre */,
+				875A6C762101952E0090FD76 /* FrameWork */,
+				875A6C75210195290090FD76 /* Util */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		875A6C75210195290090FD76 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				875A6C7B210195A20090FD76 /* UtilView */,
+				875A6C792101955F0090FD76 /* ValidateString.h */,
+				875A6C782101955F0090FD76 /* ValidateString.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		875A6C762101952E0090FD76 /* FrameWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FrameWork;
+			sourceTree = "<group>";
+		};
+		875A6C77210195430090FD76 /* ThirdLibre */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdLibre;
+			sourceTree = "<group>";
+		};
+		875A6C7B210195A20090FD76 /* UtilView */ = {
+			isa = PBXGroup;
+			children = (
+				875A6C7C210195A20090FD76 /* UtilAutoView.h */,
+				875A6C7D210195A20090FD76 /* UtilView.m */,
+				875A6C7E210195A20090FD76 /* UtilView.h */,
+				875A6C7F210195A20090FD76 /* UtilAutoView.m */,
+			);
+			path = UtilView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875A6C7A210195600090FD76 /* ValidateString.m in Sources */,
 				875A6C2A210186A30090FD76 /* ViewController.m in Sources */,
 				875A6C60210190CF0090FD76 /* FirstViewController.m in Sources */,
 				875A6C66210190DF0090FD76 /* ThirdViewController.m in Sources */,
@@ -367,7 +436,10 @@
 				875A6C63210190D70090FD76 /* SecondViewController.m in Sources */,
 				875A6C35210186A40090FD76 /* main.m in Sources */,
 				875A6C69210190E80090FD76 /* FourthViewController.m in Sources */,
+				875A6C80210195A20090FD76 /* UtilView.m in Sources */,
 				875A6C27210186A30090FD76 /* AppDelegate.m in Sources */,
+				875A6C6F2101933D0090FD76 /* BaseTabBar.m in Sources */,
+				875A6C81210195A20090FD76 /* UtilAutoView.m in Sources */,
 				875A6C6C210190F10090FD76 /* FifthViewController.m in Sources */,
 				875A6C4021018F000090FD76 /* BaseTabBarViewController.m in Sources */,
 			);
@@ -511,6 +583,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33WFRQF5GU;
+				GCC_PREFIX_HEADER = TechnologyToShare/Other/TTSPrefixHeader.pch;
 				INFOPLIST_FILE = TechnologyToShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -528,6 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 33WFRQF5GU;
+				GCC_PREFIX_HEADER = TechnologyToShare/Other/TTSPrefixHeader.pch;
 				INFOPLIST_FILE = TechnologyToShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

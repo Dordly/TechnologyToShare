@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  BaseViewController.h
 //  TechnologyToShare
 //
 //  Created by dordly on 2018/7/20.
@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface BaseViewController : UIViewController
 
 @end
-

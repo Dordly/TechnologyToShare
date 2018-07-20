@@ -24,6 +24,8 @@
 		875A6C7A210195600090FD76 /* ValidateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C782101955F0090FD76 /* ValidateString.m */; };
 		875A6C80210195A20090FD76 /* UtilView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C7D210195A20090FD76 /* UtilView.m */; };
 		875A6C81210195A20090FD76 /* UtilAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C7F210195A20090FD76 /* UtilAutoView.m */; };
+		875A6C872101B3D80090FD76 /* TapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C832101B3D80090FD76 /* TapImageView.m */; };
+		875A6C882101B3D80090FD76 /* PromtTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C842101B3D80090FD76 /* PromtTapImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,10 @@
 		875A6C7D210195A20090FD76 /* UtilView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilView.m; sourceTree = "<group>"; };
 		875A6C7E210195A20090FD76 /* UtilView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilView.h; sourceTree = "<group>"; };
 		875A6C7F210195A20090FD76 /* UtilAutoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtilAutoView.m; sourceTree = "<group>"; };
+		875A6C832101B3D80090FD76 /* TapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapImageView.m; sourceTree = "<group>"; };
+		875A6C842101B3D80090FD76 /* PromtTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromtTapImageView.m; sourceTree = "<group>"; };
+		875A6C852101B3D80090FD76 /* PromtTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromtTapImageView.h; sourceTree = "<group>"; };
+		875A6C862101B3D80090FD76 /* TapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapImageView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +332,7 @@
 		875A6C75210195290090FD76 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				875A6C822101B3D80090FD76 /* TapImageView */,
 				875A6C7B210195A20090FD76 /* UtilView */,
 				875A6C792101955F0090FD76 /* ValidateString.h */,
 				875A6C782101955F0090FD76 /* ValidateString.m */,
@@ -356,6 +363,17 @@
 				875A6C7F210195A20090FD76 /* UtilAutoView.m */,
 			);
 			path = UtilView;
+			sourceTree = "<group>";
+		};
+		875A6C822101B3D80090FD76 /* TapImageView */ = {
+			isa = PBXGroup;
+			children = (
+				875A6C832101B3D80090FD76 /* TapImageView.m */,
+				875A6C842101B3D80090FD76 /* PromtTapImageView.m */,
+				875A6C852101B3D80090FD76 /* PromtTapImageView.h */,
+				875A6C862101B3D80090FD76 /* TapImageView.h */,
+			);
+			path = TapImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,7 +449,9 @@
 				875A6C7A210195600090FD76 /* ValidateString.m in Sources */,
 				875A6C2A210186A30090FD76 /* ViewController.m in Sources */,
 				875A6C60210190CF0090FD76 /* FirstViewController.m in Sources */,
+				875A6C882101B3D80090FD76 /* PromtTapImageView.m in Sources */,
 				875A6C66210190DF0090FD76 /* ThirdViewController.m in Sources */,
+				875A6C872101B3D80090FD76 /* TapImageView.m in Sources */,
 				875A6C4321018F0C0090FD76 /* BaseViewController.m in Sources */,
 				875A6C63210190D70090FD76 /* SecondViewController.m in Sources */,
 				875A6C35210186A40090FD76 /* main.m in Sources */,
@@ -585,6 +605,7 @@
 				DEVELOPMENT_TEAM = 33WFRQF5GU;
 				GCC_PREFIX_HEADER = TechnologyToShare/Other/TTSPrefixHeader.pch;
 				INFOPLIST_FILE = TechnologyToShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,6 +624,7 @@
 				DEVELOPMENT_TEAM = 33WFRQF5GU;
 				GCC_PREFIX_HEADER = TechnologyToShare/Other/TTSPrefixHeader.pch;
 				INFOPLIST_FILE = TechnologyToShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

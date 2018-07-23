@@ -9,6 +9,8 @@
 #import "FirstViewController.h"
 #import "FirstTableViewCell.h"
 #import "FirstSearchViewController.h"//内容搜索页面
+#import "FirstContentViewController.h"//具体内容展示页
+#import "FirstContentShowViewController.h"//内容显示页面
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UIView * topView;
 @property (nonatomic, strong)UIView * topLabelView;
@@ -41,7 +43,7 @@
 #pragma mark - createMainView -
 - (void)createMainView {
     self.topView = insertAutoView(self.view, Color_clear);
-    self.topView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 390);
+    self.topView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 490);
     self.topLabelView = insertAutoView(self.topView, Color_white);
     self.topLabelView.layer.masksToBounds = YES;
     self.topLabelView.layer.cornerRadius = 20;
@@ -65,6 +67,7 @@
         make.left.right.equalTo(self.topLabelView);
         make.top.equalTo(self.topContentView.mas_bottom);
         make.bottom.equalTo(self.topView.mas_bottom);
+        make.height.mas_offset(100);
     }];
     [self.bottomContrentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.bottom.left.equalTo(self.view);
@@ -150,7 +153,17 @@
     }
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FirstContentShowViewController * showVC = [[FirstContentShowViewController alloc]init];
+    showVC.hidesBottomBarWhenPushed = YES;
+    [super pushController:showVC];
+}
 - (void)jumpNextPage:(UIButton *)sender {
     NSLog(@"%ld-点击跳转下一页",sender.tag);
+    FirstContentViewController * contetnVC = [[FirstContentViewController alloc]init];
+    contetnVC.navTitle = self.titleArray[sender.tag];
+    contetnVC.hidesBottomBarWhenPushed = YES;
+    [super pushController:contetnVC];
 }
 @end

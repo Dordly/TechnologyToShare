@@ -38,6 +38,8 @@
 		877994B52105742200B3A687 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877994B42105742100B3A687 /* CoreLocation.framework */; };
 		877994B8210581BE00B3A687 /* FirstSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994B7210581BE00B3A687 /* FirstSearchViewController.m */; };
 		877994BB21058B4700B3A687 /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994BA21058B4700B3A687 /* FirstTableViewCell.m */; };
+		877994BE2105BE4800B3A687 /* FirstContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994BD2105BE4800B3A687 /* FirstContentViewController.m */; };
+		877994C12105BF0B00B3A687 /* FirstContentShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,10 @@
 		877994B7210581BE00B3A687 /* FirstSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstSearchViewController.m; sourceTree = "<group>"; };
 		877994B921058B4700B3A687 /* FirstTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstTableViewCell.h; sourceTree = "<group>"; };
 		877994BA21058B4700B3A687 /* FirstTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstTableViewCell.m; sourceTree = "<group>"; };
+		877994BC2105BE4800B3A687 /* FirstContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstContentViewController.h; sourceTree = "<group>"; };
+		877994BD2105BE4800B3A687 /* FirstContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstContentViewController.m; sourceTree = "<group>"; };
+		877994BF2105BF0B00B3A687 /* FirstContentShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstContentShowViewController.h; sourceTree = "<group>"; };
+		877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstContentShowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +266,10 @@
 				875A6C5F210190CF0090FD76 /* FirstViewController.m */,
 				877994B6210581BE00B3A687 /* FirstSearchViewController.h */,
 				877994B7210581BE00B3A687 /* FirstSearchViewController.m */,
+				877994BC2105BE4800B3A687 /* FirstContentViewController.h */,
+				877994BD2105BE4800B3A687 /* FirstContentViewController.m */,
+				877994BF2105BF0B00B3A687 /* FirstContentShowViewController.h */,
+				877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -597,10 +607,12 @@
 				875A6C872101B3D80090FD76 /* TapImageView.m in Sources */,
 				877994BB21058B4700B3A687 /* FirstTableViewCell.m in Sources */,
 				875A6C4321018F0C0090FD76 /* BaseViewController.m in Sources */,
+				877994C12105BF0B00B3A687 /* FirstContentShowViewController.m in Sources */,
 				877994AC2105736E00B3A687 /* Static.m in Sources */,
 				875A6C63210190D70090FD76 /* SecondViewController.m in Sources */,
 				877994B02105736E00B3A687 /* UIButton+Layout.m in Sources */,
 				877994AF2105736E00B3A687 /* NSDictionary+Unicode.m in Sources */,
+				877994BE2105BE4800B3A687 /* FirstContentViewController.m in Sources */,
 				875A6C35210186A40090FD76 /* main.m in Sources */,
 				875A6C69210190E80090FD76 /* FourthViewController.m in Sources */,
 				875A6C80210195A20090FD76 /* UtilView.m in Sources */,

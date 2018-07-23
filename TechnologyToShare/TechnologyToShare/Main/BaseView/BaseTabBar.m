@@ -24,8 +24,8 @@
         self.tintColor = Main_Color;
         self.backgroundColor = Color_white;
         // 添加中间按钮到tabBar上
-        self.centerBtn = insertAutoButton(self, Img_Name(@"third_a"), Img_Name(@"third_a"), Color_clear, nil, nil, nil, nil, UIControlContentHorizontalAlignmentCenter);
-        self.centerBtn.frame = CGRectMake(0, 0, 60, 60);
+        self.centerBtn = insertAutoButton(self, Img_Name(@"Add"), Img_Name(@"Add"), Color_clear, nil, nil, nil, nil, UIControlContentHorizontalAlignmentCenter);
+        self.centerBtn.frame = CGRectMake(0, 0, 48, 48);
         
         [self.centerBtn addTarget:self action:@selector(clickCenterBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.centerBtn];

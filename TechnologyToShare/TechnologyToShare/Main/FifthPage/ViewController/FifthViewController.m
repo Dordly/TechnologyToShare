@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [super setNavigationBarColor:Main_Color title:@"我的" TitleColor:Color_white];
 }
 
 @end

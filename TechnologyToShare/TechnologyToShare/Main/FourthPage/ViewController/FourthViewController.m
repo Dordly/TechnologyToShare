@@ -16,5 +16,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [super setNavigationBarColor:Main_Color title:@"发现" TitleColor:Color_white];
 }
 @end

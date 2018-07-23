@@ -381,19 +381,19 @@
 /**
  *  显示提示信息框
  */
-+ (void)showErrorInfo:(NSString *)errorInfo Width:(CGFloat)width
-{
-    LemonBubbleInfo *iconInfo = [[LemonBubbleInfo alloc] init];
-    iconInfo.maskColor = RGBA(0, 0, 0, 0.4);
-    //    iconInfo.backgroundColor = Color_white;
-    //    iconInfo.titleColor = [UIColor darkGrayColor];
-    iconInfo.locationStyle = BUBBLE_LOCATION_STYLE_BOTTOM;
-    iconInfo.layoutStyle = BUBBLE_LAYOUT_STYLE_TITLE_ONLY;
-    iconInfo.title = errorInfo;
-    iconInfo.proportionOfDeviation = 0.05;
-    iconInfo.bubbleSize = CGSizeMake(width, DHEIGHT(80));
-    [[LemonBubbleView defaultBubbleView] showWithInfo:iconInfo autoCloseTime:2];
-}
+//+ (void)showErrorInfo:(NSString *)errorInfo Width:(CGFloat)width
+//{
+//    LemonBubbleInfo *iconInfo = [[LemonBubbleInfo alloc] init];
+//    iconInfo.maskColor = RGBA(0, 0, 0, 0.4);
+//    //    iconInfo.backgroundColor = Color_white;
+//    //    iconInfo.titleColor = [UIColor darkGrayColor];
+//    iconInfo.locationStyle = BUBBLE_LOCATION_STYLE_BOTTOM;
+//    iconInfo.layoutStyle = BUBBLE_LAYOUT_STYLE_TITLE_ONLY;
+//    iconInfo.title = errorInfo;
+//    iconInfo.proportionOfDeviation = 0.05;
+//    iconInfo.bubbleSize = CGSizeMake(width, DHEIGHT(80));
+//    [[LemonBubbleView defaultBubbleView] showWithInfo:iconInfo autoCloseTime:2];
+//}
 
 /**
  *  显示原生弹窗
@@ -461,83 +461,83 @@
  *  确认快捷支付RSA加密
  */
 
-+ (NSString *)QuickpayRSAEncryptWithString:(NSString *)str
-{
-    CRSA *RSA = [CRSA shareInstance];
-    [RSA writePukWithKey:QuickPayPubKey];
-    NSString *pubStr = [RSA encryptByRsaWithCutData:str keyType:(KeyTypePublic)];
-
-    return pubStr;
-}
+//+ (NSString *)QuickpayRSAEncryptWithString:(NSString *)str
+//{
+//    CRSA *RSA = [CRSA shareInstance];
+//    [RSA writePukWithKey:QuickPayPubKey];
+//    NSString *pubStr = [RSA encryptByRsaWithCutData:str keyType:(KeyTypePublic)];
+//
+//    return pubStr;
+//}
 
 /**
  *  RSA加密
  */
 
 
-+ (NSString *)RSAEncryptWithString:(NSString *)str
-{
-    CRSA *RSA = [CRSA shareInstance];
-    [RSA writePukWithKey:PubKey];
-    NSString *pubStr = [RSA encryptByRsaWithCutData:str keyType:(KeyTypePublic)];
-
-    return pubStr;
-}
+//+ (NSString *)RSAEncryptWithString:(NSString *)str
+//{
+//    CRSA *RSA = [CRSA shareInstance];
+//    [RSA writePukWithKey:PubKey];
+//    NSString *pubStr = [RSA encryptByRsaWithCutData:str keyType:(KeyTypePublic)];
+//
+//    return pubStr;
+//}
 
 /**
  *  RSA解密
  */
 
-+ (NSString *)RSADecryptWithString:(NSString *)str
-{
-    CRSA * RSA = [CRSA shareInstance];
-    [RSA writePukWithKey:PubKey];
-//    [RSA writePrkWithKey:PubKey];
-    NSString *pubStr = [RSA decryptByRsaWithCutData:str keyType:(KeyTypePublic)];
-    return pubStr;
-}
+//+ (NSString *)RSADecryptWithString:(NSString *)str
+//{
+//    CRSA * RSA = [CRSA shareInstance];
+//    [RSA writePukWithKey:PubKey];
+////    [RSA writePrkWithKey:PubKey];
+//    NSString *pubStr = [RSA decryptByRsaWithCutData:str keyType:(KeyTypePublic)];
+//    return pubStr;
+//}
 
 /**
  *  AES加密
  */
 
-+ (NSString *)AESCryptWithString:(NSString *)str Key:(NSString *)key
-{
-    NSString *AESStr = [SecurityUtil encryptAESData:str Key:key];
-    return AESStr;
-}
+//+ (NSString *)AESCryptWithString:(NSString *)str Key:(NSString *)key
+//{
+//    NSString *AESStr = [SecurityUtil encryptAESData:str Key:key];
+//    return AESStr;
+//}
 
 /**
  *  AES解密
  */
-+ (NSString *)AESDecryptWithString:(NSString *)str Key:(NSString *)key
-{
-    NSString *AESStr = [SecurityUtil decryptAESData:str Key:key];
-    return AESStr;
-}
+//+ (NSString *)AESDecryptWithString:(NSString *)str Key:(NSString *)key
+//{
+//    NSString *AESStr = [SecurityUtil decryptAESData:str Key:key];
+//    return AESStr;
+//}
 
 /**
  *  MD5加密
  */
-+ (NSString *)MD5WithString:(NSString *)str
-{
-    NSData *stringData = [str dataUsingEncoding:NSUTF8StringEncoding];
-    unsigned char result[CC_MD5_DIGEST_LENGTH];//加密后的长度
-    /**
-     CC_MD5(const void *data, CC_LONG len, unsigned char *md)
-
-     data：是将要加密的数据
-     len：代表需要加载的数据长度
-     md：是加密之后的密文
-     */
-    CC_MD5(stringData.bytes, (CC_LONG)stringData.length, result);
-    NSMutableString *resultStr = [NSMutableString string];
-    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i ++)
-    {
-        [resultStr appendFormat:@"%02x",result[i]];
-    }
-    return [resultStr uppercaseString];
-}
+//+ (NSString *)MD5WithString:(NSString *)str
+//{
+//    NSData *stringData = [str dataUsingEncoding:NSUTF8StringEncoding];
+//    unsigned char result[CC_MD5_DIGEST_LENGTH];//加密后的长度
+//    /**
+//     CC_MD5(const void *data, CC_LONG len, unsigned char *md)
+//
+//     data：是将要加密的数据
+//     len：代表需要加载的数据长度
+//     md：是加密之后的密文
+//     */
+//    CC_MD5(stringData.bytes, (CC_LONG)stringData.length, result);
+//    NSMutableString *resultStr = [NSMutableString string];
+//    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i ++)
+//    {
+//        [resultStr appendFormat:@"%02x",result[i]];
+//    }
+//    return [resultStr uppercaseString];
+//}
 /**
  *  改变按钮倒计时与状态
  */
@@ -667,13 +667,14 @@
     }
     return NO;
 }
-+ (BOOL)isLocationServiceOpen {
-    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
-        return NO;
-    } else{
-        return YES;
-    }
-}
+//+ (BOOL)isLocationServiceOpen {
+//    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+//        return NO;
+//    } else{
+//        return YES;
+//    }
+//}
+
 //过滤指定字符串   里面的指定字符根据自己的需要添加 过滤特殊字符
 +(NSString*)RemoveSpecialCharacter: (NSString *)str {
     NSRange urgentRange = [str rangeOfCharacterFromSet: [NSCharacterSet characterSetWithCharactersInString: @",.？、 ~￥#&<>《》()[]{}【】^@/￡¤|§¨「」『』￠￢￣~@#&*（）——+|《》$_€"]];
@@ -751,21 +752,21 @@
     return allString;
 }
 #pragma mark 判断是否打开定位
-+(BOOL)determineWhetherTheAPPOpensTheLocation{
-    
-    if ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusAuthorizedWhenInUse || [CLLocationManager authorizationStatus] ==kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)) {
-        
-        return YES;
-    }else if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) {
-        return NO;
-        
-    }else{
-        
-        return NO;
-        
-    }
-    
-}
+//+(BOOL)determineWhetherTheAPPOpensTheLocation{
+//    
+//    if ([CLLocationManager locationServicesEnabled] && ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusAuthorizedWhenInUse || [CLLocationManager authorizationStatus] ==kCLAuthorizationStatusNotDetermined || [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized)) {
+//        
+//        return YES;
+//    }else if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) {
+//        return NO;
+//        
+//    }else{
+//        
+//        return NO;
+//        
+//    }
+//    
+//}
 // 此方法是用来判断一个字符串是不是整型.如果传进的字符串是一个字符,可以用来判断它是不是数字
 + (BOOL) deptNumInputShouldNumber:(NSString *)str
 {

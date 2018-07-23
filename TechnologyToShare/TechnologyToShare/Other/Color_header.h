@@ -11,7 +11,7 @@
 
 //颜色
 #define RGBA(r,g,b,a)  [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define Main_Color              RGBA(26, 152, 173, 1)//Color.argb(255, 87, 153, 174)
+#define Main_Color              RGBA(0, 0, 0, 1)//Color.argb(255, 87, 153, 174)
 #define Main_HintColor          RGBA(215, 233, 238, 1)//Color.argb(255, 215, 233, 238)
 #define Main_NextBgColor          RGBA(242, 243, 244, 1)//Color.argb(255, 215, 233, 238)
 #define Color_white             [UIColor whiteColor]

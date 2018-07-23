@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface ValidateString : NSObject
 /**改变按钮倒计时与状态*/
 +(void)changeVerifyButtonState:(UIButton *)sender;
@@ -84,7 +84,7 @@
 /**
 *  显示原生弹窗
 */
-+ (void)showInfo:(NSString *)info VC:(UIViewController *)VC;
+//+ (void)showInfo:(NSString *)info VC:(UIViewController *)VC;
 /**
 *  匹配手机号
 */
@@ -108,31 +108,31 @@
 /**
 *  Base64加密
 */
-+ (NSString *)base64WithString:(NSString *)str;
+//+ (NSString *)base64WithString:(NSString *)str;
 /**
  *  确认快捷支付RSA加密
 */
-+ (NSString *)QuickpayRSAEncryptWithString:(NSString *)str;
+//+ (NSString *)QuickpayRSAEncryptWithString:(NSString *)str;
 /**
  *  RSA加密
 */
-+ (NSString *)RSAEncryptWithString:(NSString *)str;
+//+ (NSString *)RSAEncryptWithString:(NSString *)str;
 /**
  *  RSA解密
 */
-+ (NSString *)RSADecryptWithString:(NSString *)str;
+//+ (NSString *)RSADecryptWithString:(NSString *)str;
 /**
 *  AES加密
 */
-+ (NSString *)AESCryptWithString:(NSString *)str Key:(NSString *)key;
+//+ (NSString *)AESCryptWithString:(NSString *)str Key:(NSString *)key;
 /**
 *  AES解密
 */
-+ (NSString *)AESDecryptWithString:(NSString *)str Key:(NSString *)key;
+//+ (NSString *)AESDecryptWithString:(NSString *)str Key:(NSString *)key;
 /**
 *  MD5加密
 */
-+ (NSString *)MD5WithString:(NSString *)str;
+//+ (NSString *)MD5WithString:(NSString *)str;
 /**
  * 判断银行卡是否合法
  */
@@ -146,7 +146,7 @@
 + (NSString *)InterceptionWithString:(NSString *)str;
 /**判断字符串中是否包含文字*/
 +(BOOL)IsChinese:(NSString *)str;
-+ (BOOL)isLocationServiceOpen;
+//+ (BOOL)isLocationServiceOpen;
 /**过滤指定字符串   里面的指定字符根据自己的需要添加 过滤特殊字符*/
 +(NSString*)RemoveSpecialCharacter: (NSString *)str;
 /**时间比较*/
@@ -154,7 +154,7 @@
 /**转换拼音*/
 +(NSString *)transformToPinyin:(NSString *)aString;
 /**判断是否打开定位*/
-+(BOOL)determineWhetherTheAPPOpensTheLocation;
+//+(BOOL)determineWhetherTheAPPOpensTheLocation;
 /**此方法是用来判断一个字符串是不是整型.如果传进的字符串是一个字符,可以用来判断它是不是数字*/
 + (BOOL) deptNumInputShouldNumber:(NSString *)str;
 @end

@@ -31,21 +31,18 @@
 - (void)addAllChildViewController {
     
     FirstViewController * fistVC = [[FirstViewController alloc]init];
-    UINavigationController * firstNV = [[UINavigationController alloc]initWithRootViewController:fistVC];
-    [self addChildViewController:firstNV title:@"首页" imageNamed:@"first_a" SelectImageNamed:@"first_n"];
+    [self addChildViewController:fistVC title:@"首页" imageNamed:@"first_a" SelectImageNamed:@"first_n"];
     
     SecondViewController * secondVC = [[SecondViewController alloc]init];
-    UINavigationController * secondNV = [[UINavigationController alloc]initWithRootViewController:secondVC];
-    [self addChildViewController:secondNV title:@"关注" imageNamed:@"second_a" SelectImageNamed:@"second_n"];
+    [self addChildViewController:secondVC title:@"关注" imageNamed:@"second_a" SelectImageNamed:@"second_n"];
     
     
     FourthViewController * fourthVC = [[FourthViewController alloc]init];
-    UINavigationController * fourthNV = [[UINavigationController alloc]initWithRootViewController:fourthVC];
-    [self addChildViewController:fourthNV title:@"发现" imageNamed:@"fourth_a" SelectImageNamed:@"fourth_n"];
+    [self addChildViewController:fourthVC title:@"发现" imageNamed:@"fourth_a" SelectImageNamed:@"fourth_n"];
+    
     
     FifthViewController * fifthVC = [[FifthViewController alloc]init];
-    UINavigationController * fifthNV = [[UINavigationController alloc]initWithRootViewController:fifthVC];
-    [self addChildViewController:fifthNV title:@"我的" imageNamed:@"fifth_a" SelectImageNamed:@"fifth_n"];
+    [self addChildViewController:fifthVC title:@"我的" imageNamed:@"fifth_a" SelectImageNamed:@"fifth_n"];
     
 }
 // 添加某个 childViewController
@@ -73,6 +70,7 @@
 }
 - (void)addButtonClick:(BaseTabBar *)tabBar
 {
+    
     ThirdViewController * thirdVC = [[ThirdViewController alloc]init];
     [self presentViewController:thirdVC animated:YES completion:nil];
 }@end

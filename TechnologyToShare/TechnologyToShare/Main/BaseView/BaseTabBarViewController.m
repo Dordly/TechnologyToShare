@@ -54,7 +54,6 @@
     nav.tabBarItem.title = title;
     nav.tabBarItem.image = [UIImage imageNamed:imageNamed];
     nav.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];
-    
     [self addChildViewController:nav];
 }
 - (void)changeLineOfTabbarColor {

@@ -14,11 +14,11 @@
 #import "Url_header.h"
 
 //自定义第三方
-#import "ValidateString.h"
-#import "UtilView.h"
-#import "UtilAutoView.h"
 #import "Static.h"
+#import "UtilView.h"
 #import "DTStatic.h"
+#import "UtilAutoView.h"
+#import "ValidateString.h"
 
 #import <Masonry/Masonry.h>
 

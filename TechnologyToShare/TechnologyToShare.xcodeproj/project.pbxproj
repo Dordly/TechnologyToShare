@@ -174,14 +174,14 @@
 		875A6C3B21018E6E0090FD76 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				875A6C73210193FA0090FD76 /* Url_header.h */,
+				875A6C71210193E10090FD76 /* Color_header.h */,
+				875A6C72210193F00090FD76 /* Define_header.h */,
+				875A6C70210193940090FD76 /* TTSPrefixHeader.pch */,
 				875A6C25210186A30090FD76 /* AppDelegate.h */,
 				875A6C26210186A30090FD76 /* AppDelegate.m */,
 				875A6C28210186A30090FD76 /* ViewController.h */,
 				875A6C29210186A30090FD76 /* ViewController.m */,
-				875A6C70210193940090FD76 /* TTSPrefixHeader.pch */,
-				875A6C71210193E10090FD76 /* Color_header.h */,
-				875A6C72210193F00090FD76 /* Define_header.h */,
-				875A6C73210193FA0090FD76 /* Url_header.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -204,10 +204,10 @@
 			children = (
 				875A6C6D2101933C0090FD76 /* BaseTabBar.h */,
 				875A6C6E2101933D0090FD76 /* BaseTabBar.m */,
-				875A6C3E21018F000090FD76 /* BaseTabBarViewController.h */,
-				875A6C3F21018F000090FD76 /* BaseTabBarViewController.m */,
 				875A6C4121018F0C0090FD76 /* BaseViewController.h */,
 				875A6C4221018F0C0090FD76 /* BaseViewController.m */,
+				875A6C3E21018F000090FD76 /* BaseTabBarViewController.h */,
+				875A6C3F21018F000090FD76 /* BaseTabBarViewController.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -267,12 +267,12 @@
 			children = (
 				875A6C5E210190CF0090FD76 /* FirstViewController.h */,
 				875A6C5F210190CF0090FD76 /* FirstViewController.m */,
-				877994B6210581BE00B3A687 /* FirstSearchViewController.h */,
-				877994B7210581BE00B3A687 /* FirstSearchViewController.m */,
 				877994BC2105BE4800B3A687 /* FirstContentViewController.h */,
 				877994BD2105BE4800B3A687 /* FirstContentViewController.m */,
 				877994BF2105BF0B00B3A687 /* FirstContentShowViewController.h */,
 				877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */,
+				877994B6210581BE00B3A687 /* FirstSearchViewController.h */,
+				877994B7210581BE00B3A687 /* FirstSearchViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";

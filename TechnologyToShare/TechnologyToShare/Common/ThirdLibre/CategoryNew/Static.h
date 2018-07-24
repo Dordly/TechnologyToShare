@@ -7,14 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Static : NSObject
-
 #pragma mark NSString Model
 + (NSString *)nullToString:(id)stringValue;
-
-
-
 #pragma mark NSUserDefaults Model
 + (void) setObjectToUserDefault:(id)value key:(NSString *)key;
 + (id) getObjectFromUserDefault:(NSString *)key;

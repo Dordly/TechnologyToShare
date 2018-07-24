@@ -113,5 +113,6 @@
     }else{
         //保存
     }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

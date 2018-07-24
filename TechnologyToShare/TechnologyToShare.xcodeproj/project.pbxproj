@@ -40,6 +40,7 @@
 		877994BB21058B4700B3A687 /* FirstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994BA21058B4700B3A687 /* FirstTableViewCell.m */; };
 		877994BE2105BE4800B3A687 /* FirstContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994BD2105BE4800B3A687 /* FirstContentViewController.m */; };
 		877994C12105BF0B00B3A687 /* FirstContentShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */; };
+		877994C42105CB6F00B3A687 /* ThirdSeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994C32105CB6F00B3A687 /* ThirdSeeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,8 @@
 		877994BD2105BE4800B3A687 /* FirstContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstContentViewController.m; sourceTree = "<group>"; };
 		877994BF2105BF0B00B3A687 /* FirstContentShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstContentShowViewController.h; sourceTree = "<group>"; };
 		877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstContentShowViewController.m; sourceTree = "<group>"; };
+		877994C22105CB6F00B3A687 /* ThirdSeeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdSeeViewController.h; sourceTree = "<group>"; };
+		877994C32105CB6F00B3A687 /* ThirdSeeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdSeeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +321,8 @@
 			children = (
 				875A6C64210190DF0090FD76 /* ThirdViewController.h */,
 				875A6C65210190DF0090FD76 /* ThirdViewController.m */,
+				877994C22105CB6F00B3A687 /* ThirdSeeViewController.h */,
+				877994C32105CB6F00B3A687 /* ThirdSeeViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 				877994B02105736E00B3A687 /* UIButton+Layout.m in Sources */,
 				877994AF2105736E00B3A687 /* NSDictionary+Unicode.m in Sources */,
 				877994BE2105BE4800B3A687 /* FirstContentViewController.m in Sources */,
+				877994C42105CB6F00B3A687 /* ThirdSeeViewController.m in Sources */,
 				875A6C35210186A40090FD76 /* main.m in Sources */,
 				875A6C69210190E80090FD76 /* FourthViewController.m in Sources */,
 				875A6C80210195A20090FD76 /* UtilView.m in Sources */,

@@ -14,6 +14,7 @@
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UIView * topView;
 @property (nonatomic, strong)UIView * topLabelView;
+@property (nonatomic, strong)UILabel * contentLabel;
 @property (nonatomic, strong)UIView * topContentView;
 @property (nonatomic, strong)UIView * centerTitleView;
 @property (nonatomic, strong)UIView * bottomContrentView;
@@ -43,7 +44,7 @@
 #pragma mark - createMainView -
 - (void)createMainView {
     self.topView = insertAutoView(self.view, Color_clear);
-    self.topView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 490);
+    self.topView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 340);
     self.topLabelView = insertAutoView(self.topView, Color_white);
     self.topLabelView.layer.masksToBounds = YES;
     self.topLabelView.layer.cornerRadius = 20;
@@ -54,14 +55,21 @@
     self.centerTitleView = insertAutoView(self.topView, Color_white);
     self.bottomContrentView = insertAutoView(self.view, Color_white);
     
+    self.contentLabel = insertAutoLabel(self.topLabelView, MainText_Color, Color_clear, Regular_28, NSTextAlignmentLeft, @"最新公告：积分可以兑换东西哦！");
+    self.contentLabel.numberOfLines = 0;
     [self.topLabelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.topView);
         make.height.mas_offset(40);
     }];
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self.topLabelView);
+        make.left.equalTo(self.topLabelView.mas_left).offset(20);
+        make.right.equalTo(self.topLabelView.mas_right).offset(-20);
+    }];
     [self.topContentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.topLabelView);
         make.top.equalTo(self.topLabelView.mas_bottom);
-        make.height.mas_offset(250);
+        make.height.mas_offset(200);
     }];
     [self.centerTitleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.topLabelView);

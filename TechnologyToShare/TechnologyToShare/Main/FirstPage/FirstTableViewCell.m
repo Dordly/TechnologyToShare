@@ -25,7 +25,7 @@
         shadowView.layer.cornerRadius = 9.0;
         
         self.topTitleLabel = insertAutoLabel(shadowView, Color_white, Main_Color, Regular_18, NSTextAlignmentCenter, @" 标签一 ");
-        self.topTitleLabel.layer.cornerRadius = 2;
+        self.topTitleLabel.layer.cornerRadius = 4;
         self.topTitleLabel.layer.masksToBounds = YES;
         
         self.userImgView = insertAutoImage(self.contentView, Img_Name(@"first_icon"), Color_clear);

@@ -74,7 +74,6 @@
     }
     [cell.leftImgView setImage:Img_Name(self.contentArray[indexPath.row][@"img"])];
     cell.centerTitleLabel.text = self.contentArray[indexPath.row][@"title"];
-    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

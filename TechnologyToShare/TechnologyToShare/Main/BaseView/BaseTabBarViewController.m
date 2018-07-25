@@ -31,7 +31,7 @@
 - (void)addAllChildViewController {
     
     FirstViewController * fistVC = [[FirstViewController alloc]init];
-    [self addChildViewController:fistVC title:@"首页" imageNamed:@"first_a" SelectImageNamed:@"first_n"];
+    [self addChildViewController:fistVC title:@"首页" imageNamed:@"first_n" SelectImageNamed:@"first_a"];
     
     SecondViewController * secondVC = [[SecondViewController alloc]init];
     [self addChildViewController:secondVC title:@"关注" imageNamed:@"second_a" SelectImageNamed:@"second_n"];

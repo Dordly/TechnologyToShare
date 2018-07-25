@@ -10,6 +10,7 @@
 		6C1C876B6EA20DDF6CC806FC /* Pods_TechnologyToShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BC72E4997430AA7F637C75 /* Pods_TechnologyToShare.framework */; };
 		8733415C21083372006AD3EA /* showdown.js in Resources */ = {isa = PBXBuildFile; fileRef = 8733415A21083371006AD3EA /* showdown.js */; };
 		8733415D21083372006AD3EA /* markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = 8733415B21083371006AD3EA /* markdown.css */; };
+		87334160210860C1006AD3EA /* FifthTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8733415F210860C1006AD3EA /* FifthTableViewCell.m */; };
 		875A6C27210186A30090FD76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C26210186A30090FD76 /* AppDelegate.m */; };
 		875A6C2A210186A30090FD76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C29210186A30090FD76 /* ViewController.m */; };
 		875A6C2D210186A30090FD76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875A6C2B210186A30090FD76 /* Main.storyboard */; };
@@ -51,6 +52,8 @@
 		61BC72E4997430AA7F637C75 /* Pods_TechnologyToShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechnologyToShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8733415A21083371006AD3EA /* showdown.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = showdown.js; sourceTree = "<group>"; };
 		8733415B21083371006AD3EA /* markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = markdown.css; sourceTree = "<group>"; };
+		8733415E210860C1006AD3EA /* FifthTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FifthTableViewCell.h; sourceTree = "<group>"; };
+		8733415F210860C1006AD3EA /* FifthTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FifthTableViewCell.m; sourceTree = "<group>"; };
 		875A6C22210186A30090FD76 /* TechnologyToShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnologyToShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		875A6C25210186A30090FD76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		875A6C26210186A30090FD76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 		875A6C5C210190BB0090FD76 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8733415E210860C1006AD3EA /* FifthTableViewCell.h */,
+				8733415F210860C1006AD3EA /* FifthTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -637,6 +642,7 @@
 				877994AD2105736E00B3A687 /* UIImage+Color.m in Sources */,
 				875A6C6C210190F10090FD76 /* FifthViewController.m in Sources */,
 				875A6C4021018F000090FD76 /* BaseTabBarViewController.m in Sources */,
+				87334160210860C1006AD3EA /* FifthTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

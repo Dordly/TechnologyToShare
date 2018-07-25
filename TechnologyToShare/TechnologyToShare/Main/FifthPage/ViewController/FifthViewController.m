@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.contentArray = @[@{@"img":@"icon_1",@"title":@"我的存稿"},@{@"img":@"icon_2",@"title":@"我的文集"},@{@"img":@"icon_3",@"title":@"喜欢的文章"},@{@"img":@"icon_4",@"title":@"历史记录"},@{@"img":@"icon_5",@"title":@"问题反馈"}];
+    self.contentArray = @[@{@"img":@"icon_1",@"title":@"我的存稿"},@{@"img":@"icon_2",@"title":@"我的文集"},@{@"img":@"icon_3",@"title":@"喜欢的文章"},@{@"img":@"icon_4",@"title":@"历史记录"},@{@"img":@"icon_5",@"title":@"问题反馈"},@{@"img":@"icon_6",@"title":@"打印文章"}];
     [self createMainView];
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -46,7 +46,6 @@
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     self.mainTableView.backgroundColor = Color_white;
-    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.mainTableView];
     [self.mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.top.equalTo(self.view);
@@ -73,6 +72,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
         cell.backgroundColor = Color_white;
     }
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -75,6 +75,7 @@
     UIView * contentLineView = insertAutoView(self.view, Line_Color);
     //内容
     self.contentTV = insertAutoTextView(self.view, @"请输入文字内容", Regular_34, NSTextAlignmentLeft, MainText_Color, Color_clear);
+    
     [self.titleTF mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(lineView.mas_bottom).offset(10);
         make.left.equalTo(self.view.mas_left).offset(20);
@@ -143,7 +144,7 @@
 }
 - (void)initialize
 {
-//    self.contentTV.inputAccessoryView = self.toolBar;
+    self.contentTV.inputAccessoryView = self.toolBar;
     self.contentTV.textContainerInset = UIEdgeInsetsMake(10, 5, 10, 5);
     //错误回调
     [self.jsContext setExceptionHandler:^(JSContext *context, JSValue *exception){

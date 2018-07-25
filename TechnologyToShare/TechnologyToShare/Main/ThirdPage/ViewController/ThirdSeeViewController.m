@@ -10,9 +10,8 @@
 #import "ThirdSeeViewController.h"
 
 @interface ThirdSeeViewController ()
-@property (nonatomic, strong)UITextField * titleTF;//标题
-@property (nonatomic, strong)UITextView * contentTV;//内容
-
+@property (nonatomic, strong)UIWebView * webView;
+@property (nonatomic, strong)UILabel * titleLabel;
 @end
 @implementation ThirdSeeViewController
 
@@ -27,6 +26,28 @@
         make.width.height.offset(25);
     }];
     [backBt addTarget:self action:@selector(jumpBack) forControlEvents:UIControlEventTouchUpInside];
+    
+    //标题
+    self.titleLabel = insertAutoLabel(self.view, MainText_Color, Color_clear, Regular_34, NSTextAlignmentCenter, self.titleName);
+    self.titleLabel.numberOfLines = 0;
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(backBt);
+        make.left.equalTo(backBt.mas_right).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-45);
+    }];
+    
+    self.webView = [[UIWebView alloc]init];
+    self.webView.backgroundColor = Color_white;
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(backBt.mas_bottom).offset(20);
+        make.left.equalTo(self.view.mas_left).offset(20);
+        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
+    }];
+    if (self.htmlString.length) {
+        [self.webView loadHTMLString:self.htmlString baseURL:nil];
+    }
 }
 - (void)viewWillAppear:(BOOL)animated
 {

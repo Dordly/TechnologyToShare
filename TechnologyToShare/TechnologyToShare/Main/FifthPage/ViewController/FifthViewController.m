@@ -45,7 +45,7 @@
     self.mainTableView.tableFooterView = [[UIView alloc]init];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
-    self.mainTableView.backgroundColor = Main_BgColor;
+    self.mainTableView.backgroundColor = Color_white;
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.mainTableView];
     [self.mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {

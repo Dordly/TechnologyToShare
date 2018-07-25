@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C1C876B6EA20DDF6CC806FC /* Pods_TechnologyToShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BC72E4997430AA7F637C75 /* Pods_TechnologyToShare.framework */; };
+		8733415C21083372006AD3EA /* showdown.js in Resources */ = {isa = PBXBuildFile; fileRef = 8733415A21083371006AD3EA /* showdown.js */; };
+		8733415D21083372006AD3EA /* markdown.css in Resources */ = {isa = PBXBuildFile; fileRef = 8733415B21083371006AD3EA /* markdown.css */; };
 		875A6C27210186A30090FD76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C26210186A30090FD76 /* AppDelegate.m */; };
 		875A6C2A210186A30090FD76 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C29210186A30090FD76 /* ViewController.m */; };
 		875A6C2D210186A30090FD76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 875A6C2B210186A30090FD76 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 		472D44C974BCB9318973E986 /* Pods-TechnologyToShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechnologyToShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-TechnologyToShare/Pods-TechnologyToShare.release.xcconfig"; sourceTree = "<group>"; };
 		5877D35B3847291BBAAA5320 /* Pods-TechnologyToShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechnologyToShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TechnologyToShare/Pods-TechnologyToShare.debug.xcconfig"; sourceTree = "<group>"; };
 		61BC72E4997430AA7F637C75 /* Pods_TechnologyToShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechnologyToShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8733415A21083371006AD3EA /* showdown.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = showdown.js; sourceTree = "<group>"; };
+		8733415B21083371006AD3EA /* markdown.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = markdown.css; sourceTree = "<group>"; };
 		875A6C22210186A30090FD76 /* TechnologyToShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnologyToShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		875A6C25210186A30090FD76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		875A6C26210186A30090FD76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 		875A6C74210195220090FD76 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8733415B21083371006AD3EA /* markdown.css */,
+				8733415A21083371006AD3EA /* showdown.js */,
 				875A6C77210195430090FD76 /* ThirdLibre */,
 				875A6C762101952E0090FD76 /* FrameWork */,
 				875A6C75210195290090FD76 /* Util */,
@@ -539,6 +545,8 @@
 				875A6C32210186A40090FD76 /* LaunchScreen.storyboard in Resources */,
 				875A6C2F210186A40090FD76 /* Assets.xcassets in Resources */,
 				875A6C2D210186A30090FD76 /* Main.storyboard in Resources */,
+				8733415C21083372006AD3EA /* showdown.js in Resources */,
+				8733415D21083372006AD3EA /* markdown.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

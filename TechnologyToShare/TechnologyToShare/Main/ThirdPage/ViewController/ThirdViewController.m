@@ -8,12 +8,13 @@
 
 #import "ThirdViewController.h"
 #import "ThirdSeeViewController.h"
-
+#import <JavaScriptCore/JavaScriptCore.h>
 @interface ThirdViewController ()<UIAlertViewDelegate>
 
 @property (nonatomic, strong)UITextField * titleTF;//标题
 @property (nonatomic, strong)UITextView * contentTV;//内容
 @property (nonatomic, strong)UIToolbar * toolBar;//底部内容展示
+@property (nonatomic, strong)JSContext *jsContext;
 
 @end
 
@@ -21,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jsContext = [[JSContext alloc]init];
     [self createMainView];
+    [self initialize];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -32,6 +35,7 @@
 {
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    [self.view endEditing:YES];
 }
 - (void)createMainView {
     UIButton * closeBt = insertAutoButton(self.view, Img_Name(@"close"), Img_Name(@"close"), Color_clear, nil, nil, nil, nil, UIControlContentHorizontalAlignmentCenter);
@@ -102,17 +106,88 @@
         //预览
         
         ThirdSeeViewController * seeVC = [[ThirdSeeViewController alloc]init];
+        seeVC.htmlString = [self htmlString];
+        seeVC.titleName = self.titleTF.text;
         seeVC.hidesBottomBarWhenPushed = YES;
         [self presentViewController:seeVC animated:YES completion:nil];
     }
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    //标题不能为空
+    if (!self.titleTF.text.length) {
+        [self showMessage:@"请先填写文章标题"];
+        return;
+    }
     if (buttonIndex == 0){
         //发布
     }else{
         //保存
+        NSData *data = [self.contentTV.text dataUsingEncoding:NSUTF8StringEncoding];
+        NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+        NSString *filePath = [documentPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.md", self.titleTF.text]];
+        //写入文件
+        [data writeToFile:filePath atomically:YES];
+        NSLog(@"md成功保存，地址%@", filePath);
+        [self showMessage:@"保存成功"];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)showMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+- (void)initialize
+{
+//    self.contentTV.inputAccessoryView = self.toolBar;
+    self.contentTV.textContainerInset = UIEdgeInsetsMake(10, 5, 10, 5);
+    //错误回调
+    [self.jsContext setExceptionHandler:^(JSContext *context, JSValue *exception){
+        NSLog(@"%@", exception.toString);
+    }];
+    
+    //markdown -> html  js参考 https://github.com/showdownjs/showdown
+    static NSString *js;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        js = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"showdown" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil];
+    });
+    //加载js
+    [self.jsContext evaluateScript:js];
+    
+    //注入function  markdown -> html，使用时，可以通过 convert('xxx'); 调用
+    NSString *jsFunction = @"\
+    function convert(md) { \
+    return (new showdown.Converter()).makeHtml(md);\
+    }";
+    [self.jsContext evaluateScript:jsFunction];
+}
+
+- (NSString *)htmlString
+{
+    //markdown -> html
+    JSValue *jsFunctionValue = self.jsContext[@"convert"];
+    JSValue *htmlValue = [jsFunctionValue callWithArguments:@[self.contentTV.text]];
+    //加载css样式
+    static NSString *css;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        css = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"markdown" ofType:@"css"] encoding:NSUTF8StringEncoding error:nil];
+    });
+    return [NSString stringWithFormat:@"\
+            <html>\
+            <head>\
+            <title>%@</title>\
+            <style>%@</style>\
+            </head>\
+            <body>\
+            %@\
+            </body>\
+            </html>\
+            ", self.titleTF.text, css, htmlValue.toString];
 }
 @end

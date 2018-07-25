@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface ThirdSeeViewController : BaseViewController
-
+@property (nonatomic, copy)NSString * htmlString;
+@property (nonatomic, copy)NSString * titleName;
 @end

@@ -13,6 +13,10 @@
 @property (nonatomic, strong)UIView * topView;
 @property (nonatomic, strong)UITableView * mainTableView;
 @property (nonatomic, strong)NSArray * contentArray;
+//头像，名称，标签
+@property (nonatomic, strong)UIImageView * iconImgView;
+@property (nonatomic, strong)UILabel * nameLabel;
+@property (nonatomic, strong)UILabel * titleLabel;
 
 @end
 
@@ -39,6 +43,28 @@
 - (void)createMainView {
     self.topView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 220)];
     self.topView.backgroundColor = Color_white;
+    
+    self.iconImgView = insertAutoImage(self.topView, Img_Name(@"fifth_ICON"), Color_clear);
+    self.nameLabel = insertAutoLabel(self.topView, MainText_Color, Color_clear, Regular_32, NSTextAlignmentRight, @"佚名");
+    self.titleLabel = insertAutoLabel(self.topView, Color_white, MainText_Color, Regular_24, NSTextAlignmentCenter, @"普通用户");
+    self.titleLabel.layer.masksToBounds = YES;
+    self.titleLabel.layer.cornerRadius = 3;
+    
+    [self.iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.topView.mas_centerX);
+        make.centerY.equalTo(self.topView.mas_centerY);
+        make.width.height.mas_offset(70);
+    }];
+    [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.iconImgView.mas_bottom).offset(10);
+        make.left.equalTo(self.topView.mas_left).offset(20);
+        make.width.mas_offset(SCREEN_WIDTH/2-20);
+    }];
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(self.nameLabel);
+        make.left.equalTo(self.nameLabel.mas_right).offset(10);
+        make.width.mas_offset(60);
+    }];
     
     self.mainTableView = [[UITableView alloc]init];
     self.mainTableView.tableHeaderView = self.topView;

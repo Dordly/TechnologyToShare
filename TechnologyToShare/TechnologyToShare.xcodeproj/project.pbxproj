@@ -30,6 +30,7 @@
 		875A6C81210195A20090FD76 /* UtilAutoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C7F210195A20090FD76 /* UtilAutoView.m */; };
 		875A6C872101B3D80090FD76 /* TapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C832101B3D80090FD76 /* TapImageView.m */; };
 		875A6C882101B3D80090FD76 /* PromtTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C842101B3D80090FD76 /* PromtTapImageView.m */; };
+		87628BF9210B01580062241D /* FirstAnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87628BF8210B01580062241D /* FirstAnnouncementViewController.m */; };
 		877994AC2105736E00B3A687 /* Static.m in Sources */ = {isa = PBXBuildFile; fileRef = 8779949C2105736D00B3A687 /* Static.m */; };
 		877994AD2105736E00B3A687 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 8779949D2105736D00B3A687 /* UIImage+Color.m */; };
 		877994AE2105736E00B3A687 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994A42105736E00B3A687 /* UIColor+Hex.m */; };
@@ -94,6 +95,8 @@
 		875A6C842101B3D80090FD76 /* PromtTapImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromtTapImageView.m; sourceTree = "<group>"; };
 		875A6C852101B3D80090FD76 /* PromtTapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromtTapImageView.h; sourceTree = "<group>"; };
 		875A6C862101B3D80090FD76 /* TapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapImageView.h; sourceTree = "<group>"; };
+		87628BF7210B01580062241D /* FirstAnnouncementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstAnnouncementViewController.h; sourceTree = "<group>"; };
+		87628BF8210B01580062241D /* FirstAnnouncementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstAnnouncementViewController.m; sourceTree = "<group>"; };
 		8779949C2105736D00B3A687 /* Static.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Static.m; sourceTree = "<group>"; };
 		8779949D2105736D00B3A687 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		8779949E2105736D00B3A687 /* DTStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTStatic.h; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				877994C02105BF0B00B3A687 /* FirstContentShowViewController.m */,
 				877994B6210581BE00B3A687 /* FirstSearchViewController.h */,
 				877994B7210581BE00B3A687 /* FirstSearchViewController.m */,
+				87628BF7210B01580062241D /* FirstAnnouncementViewController.h */,
+				87628BF8210B01580062241D /* FirstAnnouncementViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				877994B8210581BE00B3A687 /* FirstSearchViewController.m in Sources */,
+				87628BF9210B01580062241D /* FirstAnnouncementViewController.m in Sources */,
 				875A6C7A210195600090FD76 /* ValidateString.m in Sources */,
 				877994AE2105736E00B3A687 /* UIColor+Hex.m in Sources */,
 				875A6C2A210186A30090FD76 /* ViewController.m in Sources */,

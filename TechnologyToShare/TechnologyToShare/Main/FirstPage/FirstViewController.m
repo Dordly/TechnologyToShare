@@ -11,6 +11,7 @@
 #import "FirstSearchViewController.h"//内容搜索页面
 #import "FirstContentViewController.h"//具体内容展示页
 #import "FirstContentShowViewController.h"//内容显示页面
+#import "FirstAnnouncementViewController.h"//公告页面
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong)UIView * topView;
 @property (nonatomic, strong)UIView * topLabelView;
@@ -30,6 +31,7 @@
     [super viewDidLoad];
     [super setNavigationBarColor:Main_Color title:@"首页" TitleColor:Color_white];
     [super setNavigationRightIconView:Img_Name(@"search") Action:@selector(searchContent:)];
+    
     self.titleArray = [NSMutableArray arrayWithCapacity:0];
     self.contentArray = [NSMutableArray arrayWithCapacity:0];
     self.topTitleArray = [NSMutableArray arrayWithObjects:@"标签一",@"标签二",@"标签三",@"标签四", nil];
@@ -86,6 +88,8 @@
         make.width.mas_offset(SCREEN_WIDTH);
         make.height.mas_offset(80);
     }];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpNewPage)];
+    [self.topLabelView addGestureRecognizer:tap];
     
     for (int i = 0; i < self.topTitleArray.count; i++) {
         self.centerTitleView = [self setTitleBtWithWidth:(SCREEN_WIDTH/4-20)*i WithVWidth:SCREEN_WIDTH/4-20 WithHeight:40 WithTag:i WithView:self.topLabelScrollView WithImg:nil WithTitle:self.topTitleArray[i]];
@@ -130,6 +134,12 @@
     mainBt.tag = 10+tag;
     [mainBt addTarget:self action:@selector(jumpNextPage:) forControlEvents:UIControlEventTouchUpInside];
     return mainView;
+}
+#pragma mark - 公告列表 -
+- (void)jumpNewPage {
+    FirstAnnouncementViewController * announcementVC = [[FirstAnnouncementViewController alloc]init];
+    announcementVC.hidesBottomBarWhenPushed = YES;
+    [super pushController:announcementVC];
 }
 #pragma mark - UITableViewDelegate & UITableViewDataSoure -
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

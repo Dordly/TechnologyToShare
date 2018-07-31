@@ -27,7 +27,7 @@
         [self.rightImgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView.mas_centerY);
             make.right.equalTo(self.contentView.mas_right).offset(-20);
-            make.height.width.mas_offset(25);
+            make.height.width.mas_offset(20);
         }];
         [self.centerTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView.mas_centerY);

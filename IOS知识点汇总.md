@@ -1,19 +1,283 @@
 # IOS知识点汇总
 ## 第三方开源项目
 ### 响应式编程
-* ReactiveCocoa
-* RxSwift
+* [Swift-ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
+* [RxSwift](https://github.com/ReactiveX/RxSwift)
 
-### AFNetworking
-### SDWebImage
-### GPUImage
-### Masonry
-### RestKit
-### YYKit
-### FMDB
-### RESideMenu
-### UITableView - FDTemplateLayoutCell
-### IQKeyBoardManager
+#### [AFNetworking -- 功能非常齐全的网络数据请求库，侧重于处理各种类型的api风格,提供了远程图片异步加载，上传下载等常用功能，如果项目数据量很小它会是很好的选择](https://github.com/AFNetworking/AFNetworking)
+* POST
+* GET
+
+#### [SDWebImage -- 图片异步加载](https://github.com/rs/SDWebImage)
+
+* 特点
+   * 不阻塞主线程
+   * 异步加载图片，不重复获取图片URL
+   * 后台图片解压缩
+   * 高性能
+   * 使用GCD和ARC
+   * 支持多种图片格式，包括GIF
+   * 提供 UIImageView, UIButton, MKAnnotationView 的分类，用来显示网络图片，以及缓存管理
+   * 异步缓存（内存+磁盘），并且自动管理缓存有效性
+ 
+ ***
+   * 使用方法，常用：UIImageView+WebCache
+ ```
+ [self.imageView sd_setImageWithURL:[NSURL URLWithString:@"图片链接"] placeholderImage:[UIImage imageNamed:@"默认图片"]];
+ ```
+ 
+   * 使用回调 blocks
+   
+  ```
+  [self.imageView sd_setImageWithURL:[NSURL URLWithString:@"图片链接"]
+                      placeholderImage:[UIImage imageNamed:@"默认图片"]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                 ... completion code here ...
+                             }];
+  ```
+  
+   *  SDWebImageManager 的使用(将图片下载和图片缓存组合起来了,也可以单独使用)
+
+   ```
+   SDWebImageManager *manager = [SDWebImageManager sharedManager];
+[manager loadImageWithURL:imageURL
+                      options:0
+                     progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                         // progression tracking code
+                     }
+                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+                        if (image) {
+                            // do something with image
+                        }
+                    }];
+   ```
+   
+   * 使用 SDWebImageDownloader 异步下载图片(单独使用，图片不会缓存)
+
+   ```
+   SDWebImageDownloader *downloader = [SDWebImageDownloader sharedDownloader];
+[downloader downloadImageWithURL:imageURL
+                             options:0
+                            progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                                // progression tracking code
+                            }
+                           completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+                               if (image && finished) {
+                                   // do something with image
+                               }
+                           }];
+   ```
+   
+   * 使用 SDImageCache 异步缓存图片(单独使用时，可使用单例，也可以创建一个有独立命名空间的 SDImageCache 实例)
+      * 添加缓存
+      
+   ```
+   [[SDImageCache sharedImageCache] storeImage:myImage forKey:myCacheKey];
+   ```
+   
+      * 默认情况下，图片数据会同时缓存到内存和磁盘中，如果你想只要内存缓存的话
+      
+      ```
+      [[SDImageCache sharedImageCache] storeImage:myImage forKey:myCacheKey toDisk:NO];
+      ```
+      * 读取缓存时可以使用 queryDiskCacheForKey:done: 方法，图片缓存的 key 是唯一的，通常就是图片的 absolute URL
+
+      ```
+      SDImageCache *imageCache = [[SDImageCache alloc] initWithNamespace:@"myNamespace"];
+[imageCache queryDiskCacheForKey:myCacheKey done:^(UIImage *image) {
+        // image is not nil if image was found
+    }];
+      ```
+ ***
+
+#### [OC-GPUImage -- 做滤镜最主流的开源框架](https://github.com/BradLarson/GPUImage)
+
+***
+* GPUImage中的几个概念(output为输出源,intput为输入源,filter为滤镜)
+   * #import "GPUImageBrightnessFilter.h"                //亮度
+   * #import "GPUImageExposureFilter.h"                  //曝光
+   * #import "GPUImageContrastFilter.h"                  //对比度
+   * #import "GPUImageSaturationFilter.h"                //饱和度
+   * #import "GPUImageGammaFilter.h"                     //伽马线
+   * #import "GPUImageColorInvertFilter.h"               //反色
+   * #import "GPUImageSepiaFilter.h"                     //褐色（怀旧）
+   * #import "GPUImageLevelsFilter.h"                    //色阶
+   * #import "GPUImageGrayscaleFilter.h"                 //灰度
+   * #import "GPUImageHistogramFilter.h"                 //色彩直方图，显示在图片上
+   * #import "GPUImageHistogramGenerator.h"              //色彩直方图
+   * #import "GPUImageRGBFilter.h"                       //RGB
+   * #import "GPUImageToneCurveFilter.h"                 //色调曲线
+   * #import "GPUImageMonochromeFilter.h"                //单色
+   * #import "GPUImageOpacityFilter.h"                   //不透明度
+   * #import "GPUImageHighlightShadowFilter.h"           //提亮阴影
+   * #import "GPUImageFalseColorFilter.h"                //色彩替换（替换亮部和暗部色彩）
+   * #import "GPUImageHueFilter.h"                       //色度
+   * #import "GPUImageChromaKeyFilter.h"                 //色度键
+   * #import "GPUImageWhiteBalanceFilter.h"              //白平横
+   * #import "GPUImageAverageColor.h"                    //像素平均色值
+   * #import "GPUImageSolidColorGenerator.h"             //纯色
+   * #import "GPUImageLuminosity.h"                      //亮度平均
+   * #import "GPUImageAverageLuminanceThresholdFilter.h" //像素色值亮度平均，图像黑白（有类似漫画效果）
+   * #import "GPUImageLookupFilter.h"                    //lookup 色彩调整
+   * #import "GPUImageAmatorkaFilter.h"                  //Amatorka lookup
+   * #import "GPUImageMissEtikateFilter.h"               //MissEtikate lookup
+   * #import "GPUImageSoftEleganceFilter.h"              //SoftElegance lookup
+   * #import "GPUImageCrosshairGenerator.h"              //十字
+   * #import "GPUImageLineGenerator.h"                   //线条
+   * #import "GPUImageTransformFilter.h"                 //形状变化
+   * #import "GPUImageCropFilter.h"                      //剪裁
+   * #import "GPUImageSharpenFilter.h"                   //锐化
+   * #import "GPUImageUnsharpMaskFilter.h"               //反遮罩锐化
+   * #import "GPUImageFastBlurFilter.h"                  //模糊
+   * #import "GPUImageGaussianBlurFilter.h"              //高斯模糊
+   * #import "GPUImageGaussianSelectiveBlurFilter.h"     //高斯模糊，选择部分清晰
+   * #import "GPUImageBoxBlurFilter.h"                   //盒状模糊
+   * #import "GPUImageTiltShiftFilter.h"                 //条纹模糊，中间清晰，上下两端模糊
+   *  #import "GPUImageMedianFilter.h"                    //中间值，有种稍微模糊边缘的效果
+   * #import "GPUImageBilateralFilter.h"                 //双边模糊
+   * #import "GPUImageErosionFilter.h"                   //侵蚀边缘模糊，变黑白
+   * #import "GPUImageRGBErosionFilter.h"                //RGB侵蚀边缘模糊，有色彩
+   * #import "GPUImageDilationFilter.h"                  //扩展边缘模糊，变黑白
+   * #import "GPUImageRGBDilationFilter.h"               //RGB扩展边缘模糊，有色彩
+   * #import "GPUImageOpeningFilter.h"                   //黑白色调模糊
+   * #import "GPUImageRGBOpeningFilter.h"                //彩色模糊
+   * #import "GPUImageClosingFilter.h"                   //黑白色调模糊，暗色会被提亮
+   * #import "GPUImageRGBClosingFilter.h"                //彩色模糊，暗色会被提亮
+   * #import "GPUImageLanczosResamplingFilter.h"         //Lanczos重取样，模糊效果
+   * #import "GPUImageNonMaximumSuppressionFilter.h"     //非最大抑制，只显示亮度最高的像素，其他为黑
+   * #import "GPUImageThresholdedNonMaximumSuppressionFilter.h" //与上相比，像素丢失更多
+   * #import "GPUImageSobelEdgeDetectionFilter.h"        //Sobel边缘检测算法(白边，黑内容，有点漫画的反色效果)
+   * #import "GPUImageCannyEdgeDetectionFilter.h"        //Canny边缘检测算法（比上更强烈的黑白对比度）
+   * #import "GPUImageThresholdEdgeDetectionFilter.h"    //阈值边缘检测（效果与上差别不大）
+   * #import "GPUImagePrewittEdgeDetectionFilter.h"      //普瑞维特(Prewitt)边缘检测(效果与Sobel差不多，貌似更平滑)
+   * #import "GPUImageXYDerivativeFilter.h"              //XYDerivative边缘检测，画面以蓝色为主，绿色为边缘，带彩色
+   * #import "GPUImageHarrisCornerDetectionFilter.h"     //Harris角点检测，会有绿色小十字显示在图片角点处
+   * #import "GPUImageNobleCornerDetectionFilter.h"      //Noble角点检测，检测点更多
+   * #import "GPUImageShiTomasiFeatureDetectionFilter.h" //ShiTomasi角点检测，与上差别不大
+   * #import "GPUImageMotionDetector.h"                  //动作检测
+   * #import "GPUImageHoughTransformLineDetector.h"      //线条检测
+   * #import "GPUImageParallelCoordinateLineTransformFilter.h" //平行线检测
+   * #import "GPUImageLocalBinaryPatternFilter.h"        //图像黑白化，并有大量噪点
+   * #import "GPUImageLowPassFilter.h"                   //用于图像加亮
+   * #import "GPUImageHighPassFilter.h"                  //图像低于某值时显示为黑
+   * #import "GPUImageSketchFilter.h"                    //素描
+   * #import "GPUImageThresholdSketchFilter.h"           //阀值素描，形成有噪点的素描
+   * #import "GPUImageToonFilter.h"                      //卡通效果（黑色粗线描边）
+   * #import "GPUImageSmoothToonFilter.h"                //相比上面的效果更细腻，上面是粗旷的画风
+   * #import "GPUImageKuwaharaFilter.h"                  //桑原(Kuwahara)滤波,水粉画的模糊效果；处理时间比较长，慎用
+   * #import "GPUImageMosaicFilter.h"                    //黑白马赛克
+   * #import "GPUImagePixellateFilter.h"                 //像素化
+   * #import "GPUImagePolarPixellateFilter.h"            //同心圆像素化
+   * #import "GPUImageCrosshatchFilter.h"                //交叉线阴影，形成黑白网状画面
+   * #import "GPUImageColorPackingFilter.h"              //色彩丢失，模糊（类似监控摄像效果）
+   * #import "GPUImageVignetteFilter.h"                  //晕影，形成黑色圆形边缘，突出中间图像的效果
+   * #import "GPUImageSwirlFilter.h"                     //漩涡，中间形成卷曲的画面
+   * #import "GPUImageBulgeDistortionFilter.h"           //凸起失真，鱼眼效果
+   * #import "GPUImagePinchDistortionFilter.h"           //收缩失真，凹面镜
+   * #import "GPUImageStretchDistortionFilter.h"         //伸展失真，哈哈镜
+   * #import "GPUImageGlassSphereFilter.h"               //水晶球效果
+   * #import "GPUImageSphereRefractionFilter.h"          //球形折射，图形倒立
+   * #import "GPUImagePosterizeFilter.h"                 //色调分离，形成噪点效果
+   * #import "GPUImageCGAColorspaceFilter.h"             //CGA色彩滤镜，形成黑、浅蓝、紫色块的画面
+   * #import "GPUImagePerlinNoiseFilter.h"               //柏林噪点，花边噪点
+   * #import "GPUImage3x3ConvolutionFilter.h"            //3x3卷积，高亮大色块变黑，加亮边缘、线条等
+   * #import "GPUImageEmbossFilter.h"                    //浮雕效果，带有点3d的感觉
+   * #import "GPUImagePolkaDotFilter.h"                  //像素圆点花样
+   * #import "GPUImageHalftoneFilter.h"                  //点染,图像黑白化，由黑点构成原图的大致图形
+   * #import "GPUImageMultiplyBlendFilter.h"             //通常用于创建阴影和深度效果
+   * #import "GPUImageNormalBlendFilter.h"               //正常
+   * #import "GPUImageAlphaBlendFilter.h"                //透明混合,通常用于在背景上应用前景的透明度
+   * #import "GPUImageDissolveBlendFilter.h"             //溶解
+   * #import "GPUImageOverlayBlendFilter.h"              //叠加,通常用于创建阴影效果
+   * #import "GPUImageDarkenBlendFilter.h"               //加深混合,通常用于重叠类型
+   * #import "GPUImageLightenBlendFilter.h"              //减淡混合,通常用于重叠类型
+   * #import "GPUImageSourceOverBlendFilter.h"           //源混合
+   * #import "GPUImageColorBurnBlendFilter.h"            //色彩加深混合
+   * #import "GPUImageColorDodgeBlendFilter.h"           //色彩减淡混合
+   * #import "GPUImageScreenBlendFilter.h"               //屏幕包裹,通常用于创建亮点和镜头眩光
+   * #import "GPUImageExclusionBlendFilter.h"            //排除混合
+   * #import "GPUImageDifferenceBlendFilter.h"           //差异混合,通常用于创建更多变动的颜色
+   * #import "GPUImageSubtractBlendFilter.h"             //差值混合,通常用于创建两个图像之间的动画变暗模糊效果
+   * #import "GPUImageHardLightBlendFilter.h"            //强光混合,通常用于创建阴影效果
+   * #import "GPUImageSoftLightBlendFilter.h"            //柔光混合
+   * #import "GPUImageChromaKeyBlendFilter.h"            //色度键混合
+   * #import "GPUImageMaskFilter.h"                      //遮罩混合
+   * #import "GPUImageHazeFilter.h"                      //朦胧加暗
+   * #import "GPUImageLuminanceThresholdFilter.h"        //亮度阈
+   * #import "GPUImageAdaptiveThresholdFilter.h"         //自适应阈值
+   * #import "GPUImageAddBlendFilter.h"                  //通常用于创建两个图像之间的动画变亮模糊效果
+   * #import "GPUImageDivideBlendFilter.h"               //通常用于创建两个图像之间的动画变暗模糊效果
+   * #import "c.h"
+   * #import "GPUImageVoroniConsumerFilter.h"
+
+***
+
+#### [Swift-GPUImage](https://github.com/BradLarson/GPUImage2)
+
+#### [Masonry -- 自动约束](https://github.com/SnapKit/Masonry)
+##### 采用链式编程的方法
+***
+* mas_makeConstraints()    添加约束
+* mas_remakeConstraints()  移除之前的约束，重新添加新的约束（ __调用此方法的时候，使用了如下API__）
+   * - (void)setNeedsLayout  标记为需要重新布局
+   * - (void)layoutIfNeeded  查看当前视图是否被标记需要重新布局，有则在内部调用layoutSubviews方法进行重新布局
+   * - (void)layoutSubviews  重写当前方法，在内部完成重新布局操作
+
+   
+* mas_updateConstraints()  更新约束（ __调用此方法时所使用到的API如下__ ）
+   * - (void)updateConstraintsIfNeeded  调用此方法，如果有标记为需要重新布局的约束，则立即进行重新布局，内部会调用updateConstraints方法
+   * - (void)updateConstraints          重写此方法，内部实现自定义布局过程
+   * - (BOOL)needsUpdateConstraints     当前是否需要重新布局，内部会判断当前有没有被标记的约束
+   * - (void)setNeedsUpdateConstraints  标记需要进行重新布局
+
+***
+##### 注：在使用Masonry添加约束的时候，一定要在addSubview之后再使用，要不然会引起程序的崩溃现象
+
+####[RestKit -- 注重从远程数据请求到本地数据解析的存储和流程化业务处理，它专注于RESTful API，如果你项目服务器不是RESTful，那就别考虑了](https://github.com/RestKit/RestKit)
+* 解析json和映射对象
+* Network :RestKit现在使用AFNetworking v1.3.3作为网络操作层，RestKit的维护者正在升级到AFNetworking 2.0
+* Object Mapping(对象映射): RestKit提供一个接口来直接映射服务器返回的json/xml数据
+* Core Data:RestKit对coreData提供了额外的支持，包括映射远程对象为coreData对象并且进行本地存储
+
+***
+* RKObjectManager是和RESTful services交互的核心,需要一个AFHTTPClient实例来进行初始化。
+
+* RKObjectMapping是用来配置JSON和本地model的映射信息，如果json和本地的model中都有name这个字段，你又需要解析这个字段，那么就要通过addAttributeMappingsFromArray进行添加。
+
+* RKResponseDescriptor描述了对HTTP返回数据的映射信息。pathPattern 就是api的具体路径，会被添加到baseURL后面。keyPath 是对象在json数据中的路径。看看上面的json数据,@“response.venues”说明了对象venue所处的逻辑位置，并告诉RestKit去哪找venue。
+
+***
+
+
+
+#### [YYKit](https://github.com/ibireme/YYKit)
+
+* [YYModel — 高性能的 iOS JSON 模型框架。](https://github.com/ibireme/YYModel)
+* [YYCache — 高性能的 iOS 缓存框架。](https://github.com/ibireme/YYCache)
+* [YYImage — 功能强大的 iOS 图像框架。](https://github.com/ibireme/YYImage)
+* [YYWebImage — 高性能的 iOS 异步图像加载框架。](https://github.com/ibireme/YYWebImage)
+* [YYText — 功能强大的 iOS 富文本框架。](https://github.com/ibireme/YYText)
+* [YYKeyboardManager — iOS 键盘监听管理工具。](https://github.com/ibireme/YYKeyboardManager)
+* [YYDispatchQueuePool — iOS 全局并发队列管理工具。](https://github.com/ibireme/YYDispatchQueuePool)
+* [YYAsyncLayer — iOS 异步绘制与显示的工具。](https://github.com/ibireme/YYAsyncLayer)
+* [YYCategories — 功能丰富的 Category 类型工具库。](https://github.com/ibireme/YYCategories)
+
+#### [FMDB -- 数据库](https://github.com/ccgus/fmdb)
+__对libsqlite3库的封装__
+
+#### [RESideMenu -- 侧滑栏](https://github.com/romaonthego/RESideMenu)
+
+#### [UITableView - FDTemplateLayoutCell -- 缓存cell高度-自适应](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+__可与Masonry搭配使用__
+
+#### [IQKeyBoardManager -- 自定义键盘](https://github.com/hackiftekhar/IQKeyboardManager)
+
+#### [WMPageController -- 自定义滚动菜单栏](https://github.com/wangmchn/WMPageController)
+
+#### [LemonBubble -- 自定义弹框样式](https://github.com/LemonITCN/LemonBubble)
+
+#### [MJRefresh -- 刷新加载](https://github.com/CoderMJLee/MJRefresh)
+
 ### JSON
 * MJExtension
 * JSONModel

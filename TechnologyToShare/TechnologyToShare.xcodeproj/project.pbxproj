@@ -31,6 +31,7 @@
 		875A6C872101B3D80090FD76 /* TapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C832101B3D80090FD76 /* TapImageView.m */; };
 		875A6C882101B3D80090FD76 /* PromtTapImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875A6C842101B3D80090FD76 /* PromtTapImageView.m */; };
 		87628BF9210B01580062241D /* FirstAnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87628BF8210B01580062241D /* FirstAnnouncementViewController.m */; };
+		8777FF682122AD1400144C17 /* DordlyBezierView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8777FF672122AD1400144C17 /* DordlyBezierView.m */; };
 		877994AC2105736E00B3A687 /* Static.m in Sources */ = {isa = PBXBuildFile; fileRef = 8779949C2105736D00B3A687 /* Static.m */; };
 		877994AD2105736E00B3A687 /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 8779949D2105736D00B3A687 /* UIImage+Color.m */; };
 		877994AE2105736E00B3A687 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 877994A42105736E00B3A687 /* UIColor+Hex.m */; };
@@ -97,6 +98,8 @@
 		875A6C862101B3D80090FD76 /* TapImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapImageView.h; sourceTree = "<group>"; };
 		87628BF7210B01580062241D /* FirstAnnouncementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstAnnouncementViewController.h; sourceTree = "<group>"; };
 		87628BF8210B01580062241D /* FirstAnnouncementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstAnnouncementViewController.m; sourceTree = "<group>"; };
+		8777FF662122AD1400144C17 /* DordlyBezierView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DordlyBezierView.h; sourceTree = "<group>"; };
+		8777FF672122AD1400144C17 /* DordlyBezierView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DordlyBezierView.m; sourceTree = "<group>"; };
 		8779949C2105736D00B3A687 /* Static.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Static.m; sourceTree = "<group>"; };
 		8779949D2105736D00B3A687 /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
 		8779949E2105736D00B3A687 /* DTStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTStatic.h; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 		8777FF652122AA1B00144C17 /* DordlyBorderView */ = {
 			isa = PBXGroup;
 			children = (
+				8777FF662122AD1400144C17 /* DordlyBezierView.h */,
+				8777FF672122AD1400144C17 /* DordlyBezierView.m */,
 			);
 			path = DordlyBorderView;
 			sourceTree = "<group>";
@@ -649,6 +654,7 @@
 				875A6C35210186A40090FD76 /* main.m in Sources */,
 				875A6C69210190E80090FD76 /* FourthViewController.m in Sources */,
 				875A6C80210195A20090FD76 /* UtilView.m in Sources */,
+				8777FF682122AD1400144C17 /* DordlyBezierView.m in Sources */,
 				877994B12105736E00B3A687 /* DTStatic.m in Sources */,
 				875A6C27210186A30090FD76 /* AppDelegate.m in Sources */,
 				875A6C6F2101933D0090FD76 /* BaseTabBar.m in Sources */,

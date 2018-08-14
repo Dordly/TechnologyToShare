@@ -184,6 +184,7 @@
 		875A6C3B21018E6E0090FD76 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				8777FF652122AA1B00144C17 /* DordlyBorderView */,
 				875A6C73210193FA0090FD76 /* Url_header.h */,
 				875A6C71210193E10090FD76 /* Color_header.h */,
 				875A6C72210193F00090FD76 /* Define_header.h */,
@@ -459,6 +460,13 @@
 				875A6C862101B3D80090FD76 /* TapImageView.h */,
 			);
 			path = TapImageView;
+			sourceTree = "<group>";
+		};
+		8777FF652122AA1B00144C17 /* DordlyBorderView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DordlyBorderView;
 			sourceTree = "<group>";
 		};
 		8779949B210572D700B3A687 /* CategoryNew */ = {

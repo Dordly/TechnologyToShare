@@ -33,7 +33,7 @@
     bezier_path.miterLimit = 1;
     CGFloat path[] = {20,1};
     [bezier_path setLineDash:path count:2 phase:0];
-    bezier_path.lineWidth = 5;
+    bezier_path.lineWidth = 5;//线条宽度
     
     //2、创建一个圆形贝塞尔曲线
     UIBezierPath * bezier_oval = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(200, 20, 150, 100)];
@@ -43,11 +43,11 @@
     UIBezierPath * bezier_rounds = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(30, 160, 100, 100) cornerRadius:20];
     bezier_rounds.lineWidth = 5;
     
-    //4、创建一个可选择圆角方位的贝塞尔曲线
+    //4、创建一个可选择圆角方位的贝塞尔曲线,自定义个别角为圆角（topLeft & bottomRight），圆角度为：20
     UIBezierPath * bezier_roundedCorner = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(200, 160, 100, 100) byRoundingCorners:UIRectCornerTopLeft | UIRectCornerBottomRight cornerRadii:CGSizeMake(20, 20)];
     bezier_roundedCorner.lineWidth = 5;
     
-    //5、创建一个圆弧曲线
+    //5、创建一个圆弧曲线ArcCenter 圆弧长度，radius 圆角度，startAngle 起始点，endAngle 结束点 ，clockwise 是否闭合
     UIBezierPath * bezier_arcCenter = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, 400) radius:50 startAngle:M_PI/2*3 endAngle:M_PI/3 clockwise:YES];
     bezier_arcCenter.lineWidth = 5;
     
